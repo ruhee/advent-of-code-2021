@@ -1,14 +1,15 @@
 #! /usr/bin/python
 
 filepath = 'input.txt'
-input = open(filepath, 'r').read().strip().split('\n')
+file = open(filepath, 'r').read().strip().split('\n')
+input = map(int, file)
 
 # part 1
 greater_than = 0
 
 for idx, val in enumerate(input):
     if idx > 0:
-        if int(val) > int(input[idx - 1]):
+        if val > input[idx - 1]:
             greater_than += 1
 
 print(greater_than)
@@ -18,8 +19,8 @@ second_greater_than = 0
 
 for idx, val in enumerate(input):
     if idx <= len(input) - 4:
-        first = int(val) + int(input[idx+1]) + int(input[idx+2])
-        second = int(input[idx+1]) + int(input[idx+2]) + int(input[idx+3]) # jesus christ
+        first = val + input[idx+1] + input[idx+2]
+        second = input[idx+1] + input[idx+2] + input[idx+3] 
 
         if second > first:
             second_greater_than += 1
